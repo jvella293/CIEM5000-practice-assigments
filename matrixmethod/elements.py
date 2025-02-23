@@ -456,7 +456,8 @@ class EB_point_load_element (Element):
         index_halfway = int(num_points/2)
         w[index_halfway:] += F*(x[index_halfway:] - L/2)**3/(6*EI)
         return u, w
-    
+
+
 
 class hinged_element (Element):
     """
