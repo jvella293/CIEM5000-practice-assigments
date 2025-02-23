@@ -159,9 +159,14 @@ class Element:
         l = self.L
         self.q = np.array(q)
 
-        local_element_load = [0.5 * q[0] * l, 0.5 * q[1] * l, -1.0 / 12.0 * q[1] * l * l, 0.5 * q[0] * l, 0.5 * q[1] * l, 1.0 / 12.0 * q[1] * l * l]
+        self.local_element_load = [0.5 * q[0] * l, # axial node 1
+                                   0.5 * q[1] * l, # transverse node 1
+                                   -1.0 / 12.0 * q[1] * l * l, # moment node 1
+                                   0.5 * q[0] * l, # axial node 2
+                                   0.5 * q[1] * l, # transverse node 2
+                                   1.0 / 12.0 * q[1] * l * l] # moment node 2
 
-        global_element_load = np.matmul(self.Tt, np.array(local_element_load))
+        global_element_load = np.matmul(self.Tt, np.array(self.local_element_load))
 
         self.nodes[0].add_load(global_element_load[0:3]) #YOUR CODE HERE
         self.nodes[1].add_load(global_element_load[3:6]) #YOUR CODE HERE
