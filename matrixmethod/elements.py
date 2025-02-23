@@ -168,8 +168,8 @@ class Element:
 
         global_element_load = np.matmul(self.Tt, np.array(self.local_element_load))
 
-        self.nodes[0].add_load(global_element_load[0:3]) #YOUR CODE HERE
-        self.nodes[1].add_load(global_element_load[3:6]) #YOUR CODE HERE
+        self.nodes[0].add_load(global_element_load[0:3]) 
+        self.nodes[1].add_load(global_element_load[3:6]) 
 
     def bending_moments(self, u_global, num_points=2):
         """
