@@ -351,7 +351,7 @@ class Element:
         """
         return f"Element connecting:\nnode #1:\n {self.nodes[0]}\nwith node #2:\n {self.nodes[1]}"
     
-class EB_point_load_element (Element):
+class EB_point_load_element(Element):
     """
     The EB_point_load_element class describes an element combining extension and Euler-Bernoulli bending with a point load.
 
